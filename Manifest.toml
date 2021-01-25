@@ -56,6 +56,12 @@ uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
 [[Mmap]]
 uuid = "a63ad114-7e13-5084-954f-fe012c677804"
 
+[[Orthography]]
+deps = ["DocStringExtensions", "Documenter", "Test"]
+git-tree-sha1 = "7c6cefb29aebaacc662fe24ae93ab1cc57181c20"
+uuid = "0b4c9448-09b0-4e78-95ea-3eb3328be36d"
+version = "0.3.0"
+
 [[Parsers]]
 deps = ["Dates"]
 git-tree-sha1 = "50c9a9ed8c714945e01cd53a21007ed3865ed714"

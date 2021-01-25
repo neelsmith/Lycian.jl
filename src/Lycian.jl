@@ -1,5 +1,10 @@
 module Lycian
 
-greet() = print("Hello World!")
+using Documenter, DocStringExtensions
+using Orthography
+
+export LycianAscii
+
+include("ortho.jl")
 
 end # module
