@@ -5,6 +5,9 @@ using Orthography
 
 export LycianAscii
 
+export lycianAscii
+
+
 include("ortho.jl")
 
 end # module

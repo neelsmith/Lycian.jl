@@ -2,12 +2,23 @@
 
 "An orthographic system for encoding the Lycian alphabet primarily using ASCII characaters."
 struct LycianAscii <: OrthographicSystem
+    codepoints
+    tokencategories
 end
 
-# codepoints(ortho)
-# tokentypes(ortho)
-# validstring(orhto, s)
-# validchar(orhto, s)
+"Instantiate a LycianAscii with correct code points and token types."
+function lycianAscii()
+    cps = "aebBgdiwzΘykqlmnMNopKrstTAEhx" *
+    ":15" * " \t\n"
+    ttypes = [
+        Orthography.AlphabeticToken,
+        Orthography.NumericToken,
+        Orthography.PunctuationToken,
+    ]
+    LycianAscii(cps, ttypes)
+end
+
+# ucode(s)
 # function tokenize(ortho::OrthographicSystem, s::AbstractString, tokens::Array{OrthographicToken}=[])
 #=
 
