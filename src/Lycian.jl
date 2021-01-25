@@ -4,7 +4,6 @@ using Documenter, DocStringExtensions
 using Orthography
 
 export LycianAscii
-
 export lycianAscii
 
 

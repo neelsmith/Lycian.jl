@@ -4,6 +4,7 @@
 struct LycianAscii <: OrthographicSystem
     codepoints
     tokencategories
+    tokenizer
 end
 
 "Instantiate a LycianAscii with correct code points and token types."
@@ -11,45 +12,110 @@ function lycianAscii()
     cps = "aebBgdiwzΘykqlmnMNopKrstTAEhx" *
     ":15" * " \t\n"
     ttypes = [
+        #Orthography.LexicalToken,
         Orthography.AlphabeticToken,
         Orthography.NumericToken,
         Orthography.PunctuationToken,
     ]
-    LycianAscii(cps, ttypes)
+    LycianAscii(cps, ttypes, tokenizeLycian)
 end
 
-# ucode(s)
-# function tokenize(ortho::OrthographicSystem, s::AbstractString, tokens::Array{OrthographicToken}=[])
+function tokenforstring(s::AbstractString)
+    if isNumeric(s)
+        OrthographicToken(s, NumericToken())
+    elseif isAlphabetic(s)
+        #OrthographicToken(s, LexicalToken())
+        OrthographicToken(s, AlphabeticToken())
+    elseif isPunctuation(s)
+        OrthographicToken(s, PunctuationToken())
+    else
+        OrthographicToken(s, Orthography.UnanalyzedToken())
+    end
+end
+
+"Tokenize Lycian text."
+function tokenizeLycian(s::AbstractString)
+    wsdelimited = split(s)
+    map(t -> tokenforstring(t), wsdelimited)
+end
+
+
+"True if all characters in s are numeric"
+function isNumeric(s::AbstractString)
+    chlist = split(s,"")
+    numlist = "15"
+    tfs = map(c -> occursin(c, numlist), chlist)
+    nogood = false in tfs
+    !nogood
+end
+
+function alphabetic()
+    "aebBgdiwzΘykqlmnMNopKrstTAEhx"
+end
+
+
+"True if all characters in s are alphabetic."
+function isAlphabetic(s::AbstractString)
+    chlist = split(s,"")
+    alphas = alphabetic()
+    tfs = map(c -> occursin(c, alphas), chlist)
+    nogood = false in tfs
+   
+    !nogood
+end
+
+"True if s is the interpunctuation mark."
+function isPunctuation(s::AbstractString)::Bool
+    s == ":"
+end
+
+"TBA.  Convert ASCII encoding to Lycian Unicode range"
+function ucode(s::AbstractString)
+    unicodeDictionary = a2uDict()
+    chlist = split(s, "")
+    lycianCPs = map(c -> unicodeDictionary[only(c)], chlist)
+    join(lycianCPs, "")
+end
+
+function a2uDict()
+    Dict(
+        'a' => "𐊀",
+        'e' => "𐊁",
+        'b' => "𐊂",
+        'B' => "𐊃",
+        'g' => "𐊄",
+        'd' => "𐊅",
+        'i' => "𐊆",
+        'w' => "𐊇",
+        'z' => "𐊈",
+        'Θ' => "𐊉",
+        'y' => "𐊊",
+        'k' => "𐊋",
+        'q' => "𐊌",
+        'l' => "𐊍",
+        'm' => "𐊎",
+        'n' => "𐊏",
+        'M' => "𐊐",
+        'N' => "𐊑",
+        'o' => "𐊒",
+        'p' => "𐊓",
+        'K' => "𐊔",
+        'r' => "𐊕",
+        's' => "𐊖",
+        't' => "𐊗",
+        'T' => "𐊘",
+        'A' => "𐊙",
+        'E' => "𐊚",
+        'h' => "𐊛",
+        'x' => "𐊜",
+        ':' => ":",
+        ' ' => " "
+    )
+end
+
 #=
 
-𐊀#a
-𐊁#e
-𐊂#b
-𐊃#B
-𐊄#g
-𐊅#d
-𐊆#i
-𐊇#w
-𐊈#z
-𐊉#Θ
-𐊊#y
-𐊋#k
-𐊌#q
-𐊍#l
-𐊎#m
-𐊏#n
-𐊐#M
-𐊑#N
-𐊒#o
-𐊓#p
-𐊔#K
-𐊕#r
-𐊖#s
-𐊗#t
-𐊘#T
-𐊙#A
-𐊚#E
-𐊛#h
-𐊜#x
+
+
 
 =#
