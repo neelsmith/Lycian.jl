@@ -12,20 +12,20 @@ function lycianAscii()
     cps = "aebBgdiwzΘykqlmnMNopKrstTAEhx" *
     ":15" * " \t\n"
     ttypes = [
-        #Orthography.LexicalToken,
-        Orthography.AlphabeticToken,
+        Orthography.LexicalToken,
         Orthography.NumericToken,
         Orthography.PunctuationToken,
     ]
     LycianAscii(cps, ttypes, tokenizeLycian)
 end
 
+
+"Create correct `OrthographicToken` for a given string."
 function tokenforstring(s::AbstractString)
     if isNumeric(s)
         OrthographicToken(s, NumericToken())
     elseif isAlphabetic(s)
-        #OrthographicToken(s, LexicalToken())
-        OrthographicToken(s, AlphabeticToken())
+        OrthographicToken(s, LexicalToken())
     elseif isPunctuation(s)
         OrthographicToken(s, PunctuationToken())
     else
@@ -49,6 +49,7 @@ function isNumeric(s::AbstractString)
     !nogood
 end
 
+"Compose a string with all alphabetic characters."
 function alphabetic()
     "aebBgdiwzΘykqlmnMNopKrstTAEhx"
 end
@@ -77,6 +78,8 @@ function ucode(s::AbstractString)
     join(lycianCPs, "")
 end
 
+
+"Compose a map of ASCIIish characters to Lycian unicode code points."
 function a2uDict()
     Dict(
         'a' => "𐊀",
@@ -112,10 +115,3 @@ function a2uDict()
         ' ' => " "
     )
 end
-
-#=
-
-
-
-
-=#

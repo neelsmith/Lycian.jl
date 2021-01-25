@@ -58,9 +58,9 @@ uuid = "a63ad114-7e13-5084-954f-fe012c677804"
 
 [[Orthography]]
 deps = ["DocStringExtensions", "Documenter", "Test"]
-git-tree-sha1 = "f49252c53b2b5e28ee02d96a41c6ca7cf7abd51e"
+git-tree-sha1 = "53ae798c10043b4a990d1557a594388b0e07a57a"
 uuid = "0b4c9448-09b0-4e78-95ea-3eb3328be36d"
-version = "0.4.0"
+version = "0.4.1"
 
 [[Parsers]]
 deps = ["Dates"]
