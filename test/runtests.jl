@@ -52,9 +52,18 @@ end
     #@test tkns[1].tokencategory == Orthography.LexicalToken()
     @test tkns[2].text == ":"
     @test tkns[2].tokencategory == Orthography.PunctuationToken()
-
-
 end
+
+
+
+@testset "Test morpheme marker" begin
+    lycian = lycianAscii()    
+    tkns = lycian.tokenizer("ebENnE : xopA : mE=ti prNnawatE")
+    @test length(tkns) == 7
+    @test tkns[5].text == "mE"
+    @test tkns[6].text == "ti"
+end
+
 
 @testset "Test handling of badly formed strings" begin
     lycian = lycianAscii()  
