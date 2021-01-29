@@ -36,7 +36,9 @@ end
 "Tokenize Lycian text."
 function tokenizeLycian(s::AbstractString)
     wsdelimited = split(s)
-    map(t -> tokenforstring(t), wsdelimited)
+    morphemes = map(s -> split(s,"="), wsdelimited)
+    tknstrings = collect(Iterators.flatten(morphemes))
+    tkns = map(t -> tokenforstring(t), tknstrings)
 end
 
 
@@ -69,6 +71,8 @@ end
 function isPunctuation(s::AbstractString)::Bool
     s == ":"
 end
+
+
 
 "TBA.  Convert ASCII encoding to Lycian Unicode range"
 function ucode(s::AbstractString)
