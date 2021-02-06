@@ -1,7 +1,7 @@
 name = "Lycian"
 uuid = "7c215dd3-d1b4-4517-b6c6-0123f1059a20"
 authors = ["nsmith "]
-version = "0.1.1"
+version = "0.1.2"
 
 [deps]
 DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
