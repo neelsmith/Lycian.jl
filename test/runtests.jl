@@ -72,3 +72,8 @@ end
     #@test tkns[1].text == "tideimi"
     #@test tkns[2].text == ","
 end
+
+@testset "Test non-ascii characters" begin
+    satrap = "xssaθrapazate"
+    Lycian.isAlphabetic(satrap)
+end

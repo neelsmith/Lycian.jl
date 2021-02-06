@@ -60,8 +60,12 @@ end
 "True if all characters in s are alphabetic."
 function isAlphabetic(s::AbstractString)
     chlist = split(s,"")
-    alphas = alphabetic()
-    tfs = map(c -> occursin(c, alphas), chlist)
+    alphas =  alphabetic()
+    tfs = []
+    for i in collect(eachindex(s)) 
+        push!(tfs, occursin(s[i], alphas))
+    end
+    #tfs = map(c -> occursin(c, alphas), chlist)
     nogood = false in tfs
    
     !nogood
