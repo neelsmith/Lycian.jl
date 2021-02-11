@@ -77,3 +77,9 @@ end
     satrap = "xssaθrapazate"
     Lycian.isAlphabetic(satrap)
 end
+
+@testset "Validate non-ascii characters" begin
+    satrap = "xssaθrapazate"
+    lycian = lycianAscii()
+    validstring(lycian, satrap)
+end
