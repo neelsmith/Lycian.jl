@@ -77,3 +77,9 @@ end
     satrap = "xssaθrapazate"
     Lycian.isAlphabetic(satrap)
 end
+
+@testset "Test transcription with morpheme boundary" begin
+    ascii = "mE=ti prNnawatE"
+    lyc = Lycian.ucode(ascii)
+    @test lyc == "𐊎𐊚𐊗𐊆 𐊓𐊕𐊑𐊏𐊀𐊇𐊀𐊗𐊚"
+end

@@ -81,8 +81,15 @@ end
 "TBA.  Convert ASCII encoding to Lycian Unicode range"
 function ucode(s::AbstractString)
     unicodeDictionary = a2uDict()
-    chlist = split(s, "")
-    lycianCPs = map(c -> unicodeDictionary[only(c)], chlist)
+    #chlist = split(s, "")
+    #map(c -> unicodeDictionary[only(c)], chlist)
+
+    
+    lycianCPs = []
+    for c in s
+        push!(lycianCPs, unicodeDictionary[c])
+    end
+    
     join(lycianCPs, "")
 end
 
@@ -121,6 +128,6 @@ function a2uDict()
         'x' => "𐊜",
         ':' => ":",
         ' ' => " ",
-        "=" => ""
+        '=' => ""
     )
 end
