@@ -10,7 +10,7 @@ end
 "Instantiate a LycianAscii with correct code points and token types."
 function lycianAscii()
     cps = "aebBgdiwzΘykqlmnMNopKrstTAEhx" *
-    ":15" * " \t\n"
+    ":15" * "- \t\n"
     ttypes = [
         Orthography.LexicalToken,
         Orthography.NumericToken,
@@ -53,7 +53,7 @@ end
 
 "Compose a string with all alphabetic characters."
 function alphabetic()
-    "aebBgdiwzΘykqlmnMNopKrstTAEhx"
+    "aebBgdiwzΘykqlmnMNopKrstTAEhx-"
 end
 
 
@@ -73,7 +73,7 @@ end
 
 "True if s is the interpunctuation mark."
 function isPunctuation(s::AbstractString)::Bool
-    s == ":"
+    s == ":" 
 end
 
 
@@ -134,6 +134,7 @@ function a2uDict()
         ' ' => " ",
         '1' => "I",
         '5' => "〇",
+        '-' => "-",
         '=' => ""
     )
 end
