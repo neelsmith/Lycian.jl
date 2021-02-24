@@ -45,7 +45,7 @@ end
 "True if all characters in s are numeric"
 function isNumeric(s::AbstractString)
     chlist = split(s,"")
-    numlist = "15"
+    numlist = "15⑩½"
     tfs = map(c -> occursin(c, numlist), chlist)
     nogood = false in tfs
     !nogood
@@ -134,6 +134,8 @@ function a2uDict()
         ' ' => " ",
         '1' => "I",
         '5' => "〇",
+        '⑩' => "⑩",
+        '½' => "½",
         '-' => "-",
         '=' => ""
     )
