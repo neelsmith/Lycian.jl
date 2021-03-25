@@ -5,7 +5,7 @@ Pkg.instantiate()
 push!(LOAD_PATH,"..")
 
 using Documenter, DocStringExtensions
-#using CitableText
+using Unicode
 using Lycian
 
 
