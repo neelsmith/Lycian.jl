@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.com/neelsmith/Lycian.jl.svg?branch=main)](https://travis-ci.com/neelsmith/Lycian.jl)
 
 # Lycian.jl
 
