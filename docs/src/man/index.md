@@ -4,4 +4,6 @@
 ```@docs
 LycianAscii
 lycianAscii
+codepoints
+tokentypes
 ```
