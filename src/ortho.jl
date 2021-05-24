@@ -140,3 +140,22 @@ function a2uDict()
         '=' => ""
     )
 end
+
+
+
+"""Implement Orthography's tokentypes functions for LycianAscii.
+
+$(SIGNATURES)    
+"""    
+function tokentypes(ortho::LycianAscii)
+    ortho.tokencategories
+end
+
+
+"""Implement Orthography's codepoints functions for LycianAscii.
+
+$(SIGNATURES)    
+"""    
+function codepoints(ortho::LycianAscii)
+    ortho.codepoints
+end
