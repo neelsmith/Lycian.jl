@@ -21,6 +21,9 @@ export tokentypes, codepoints
 export LycianParser
 export parser
 
+export lexicon_df, searchlex
+
+export morph_df, searchmorph
 
 
 include("ortho.jl")
