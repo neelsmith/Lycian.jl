@@ -1,16 +1,29 @@
 module Lycian
 
 using Documenter, DocStringExtensions
-using Orthography
 
+using Orthography
 import Orthography: tokentypes 
 import Orthography: codepoints 
 
+using CitableParserBuilder
+using CitableObject
+# import CitableParserBuilder: parsetoken
+
+using HTTP, CSV, DataFrames
+using Query
+
 export LycianAscii
 export lycianAscii
-
 export tokentypes, codepoints
 
+
+export LycianParser
+export parser
+
+
+
 include("ortho.jl")
+include("morph.jl")
 
 end # module
