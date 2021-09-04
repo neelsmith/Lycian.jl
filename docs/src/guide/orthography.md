@@ -34,7 +34,7 @@ Validate orthography:
 
 ```jldoctest lyc1
 using Orthography
-validstring(orthography, "ebENnE")
+validstring(orthography, "prNnawatE")
 
 # output
 
@@ -42,7 +42,7 @@ true
 ```
 
 ```jldoctest lyc1
-validstring(orthogaphy,"Lycian!")
+validstring(orthography,"Lycian!")
 
 # output
 
