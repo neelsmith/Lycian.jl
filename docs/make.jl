@@ -23,6 +23,7 @@ makedocs(
             "guide/orthography.md",
             "guide/tokenization.md",
             "guide/morphology.md",
+            "guide/analysis.md"
             
         ],
         "API documentation" => [

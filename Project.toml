@@ -1,7 +1,7 @@
 name = "Lycian"
 uuid = "7c215dd3-d1b4-4517-b6c6-0123f1059a20"
 authors = ["nsmith "]
-version = "0.2.2"
+version = "0.3.0"
 
 [deps]
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
@@ -21,7 +21,7 @@ Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 CSV = "0.8"
 CitableCorpus = "0.3"
 CitableObject = "0.6"
-CitableParserBuilder = "0.10"
+CitableParserBuilder = "0.11"
 CitableText = "0.9"
 DataFrames = "1"
 DocStringExtensions = "0.8"
