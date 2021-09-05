@@ -2,6 +2,10 @@
 # 
 #    julia --project=docs/ docs/make.jl
 #
+# Run this from repository root to serve:
+#
+#   julia -e 'using LiveServer; serve(dir="docs/build")'julia -e 'using LiveServer; serve(dir="docs/build")' 
+#
 using Pkg
 Pkg.activate(".")
 Pkg.instantiate()
@@ -16,7 +20,11 @@ makedocs(
     pages = [
         "Home" => "index.md",
         "Guide" => [
-            "guide/guide.md"
+            "guide/orthography.md",
+            "guide/tokenization.md",
+            "guide/morphology.md",
+            "guide/analysis.md"
+            
         ],
         "API documentation" => [
             "man/index.md"
