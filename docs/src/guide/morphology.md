@@ -14,9 +14,7 @@ CitableParser
 ```
 
 !!! warning "Prerequisite"
-    Creating a parser downloads a dataset over the internet into a `DataFrame`.  If you are not online, you will have to manually create a parser. Here's an example:
-    
-    `lycianparser = LycianParser("A Lycian morphological parser", parsestring, morph_df())`
+    Creating a parser downloads a dataset over the internet into a `DataFrame`.  If you are not online, you will have to manually create a parser by constructing a `DataFrame` from a local copy of the data set at `https://raw.githubusercontent.com/Descot21/Lycian/master/morphology/analyses.cex`
     
     
 
