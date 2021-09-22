@@ -7,7 +7,9 @@ struct LycianAscii <: OrthographicSystem
     tokenizer
 end
 
-"Instantiate a LycianAscii with correct code points and token types."
+"""Instantiate a LycianAscii with correct code points and token types.
+$(SIGNATURES)
+"""
 function lycianAscii()
     cps = "aebBgdiwzΘykqlmnMNopKrstTAEhx" *
     ":15" * "- \t\n"
@@ -20,7 +22,9 @@ function lycianAscii()
 end
 
 
-"Create correct `OrthographicToken` for a given string."
+"""Create correct `OrthographicToken` for a given string.
+$(SIGNATURES)
+"""
 function tokenforstring(s::AbstractString)
     if isNumeric(s)
         OrthographicToken(s, NumericToken())
@@ -33,7 +37,9 @@ function tokenforstring(s::AbstractString)
     end
 end
 
-"Tokenize Lycian text."
+"""Tokenize Lycian text.
+$(SIGNATURES)
+"""
 function tokenizeLycian(s::AbstractString)
     wsdelimited = split(s)
     morphemes = map(s -> split(s,"="), wsdelimited)
@@ -42,7 +48,9 @@ function tokenizeLycian(s::AbstractString)
 end
 
 
-"True if all characters in s are numeric"
+"""True if all characters in s are numeric.
+$(SIGNATURES)
+"""
 function isNumeric(s::AbstractString)
     chlist = split(s,"")
     numlist = "15⑩½"
@@ -51,13 +59,17 @@ function isNumeric(s::AbstractString)
     !nogood
 end
 
-"Compose a string with all alphabetic characters."
+"""Compose a string with all alphabetic characters.
+$(SIGNATURES)
+"""
 function alphabetic()
     "aebBgdiwzΘykqlmnMNopKrstTAEhx-"
 end
 
 
-"True if all characters in s are alphabetic."
+"""True if all characters in s are alphabetic.
+$(SIGNATURES)
+"""
 function isAlphabetic(s::AbstractString)
     chlist = split(s,"")
     alphas =  alphabetic()
@@ -71,14 +83,18 @@ function isAlphabetic(s::AbstractString)
     !nogood
 end
 
-"True if s is the interpunctuation mark."
+"""True if s is the interpunctuation mark.
+$(SIGNATURES)
+"""
 function isPunctuation(s::AbstractString)::Bool
     s == ":" 
 end
 
 
 
-"TBA.  Convert ASCII encoding to Lycian Unicode range"
+"""Convert ASCII encoding to Lycian Unicode range.
+$(SIGNATURES)
+"""
 function ucode(s::AbstractString)
     unicodeDictionary = a2uDict()
     #chlist = split(s, "")
@@ -94,7 +110,10 @@ function ucode(s::AbstractString)
 end
 
 
-"Compose a map of ASCIIish characters to Lycian unicode code points."
+"""Compose a map of ASCIIish characters to Lycian unicode code points.
+
+$(SIGNATURES)
+"""
 function a2uDict()
     Dict(
         'a' => "𐊀",
