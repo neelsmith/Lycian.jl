@@ -20,6 +20,5 @@ lookuplex
 
 ```@docs
 morph_df
-lookupmorph
 parsetoken
 ```

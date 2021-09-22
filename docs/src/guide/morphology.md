@@ -5,11 +5,13 @@ The `LycianParser` class implements the `CitableParser` interface.  You can inst
 
 ```jldoctest parse
 using Lycian
+using CitableParserBuilder
 lycianparser = parser()
 typeof(lycianparser) |> supertype
 
 # output
 
+[ Info: Loading morphological data...
 CitableParser
 ```
 
