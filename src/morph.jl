@@ -48,7 +48,7 @@ function parsestring(s, data)
     stemurn = StemUrn("lycian.allstems")
     ruleurn = RuleUrn("lycian.allrules")
 
-    df = isempty(data) ? morph_df() : data[1]
+    df = isempty(data) ? morph_df() : data
     subdf = @from i in df begin
         @where i.word == s
         @select {i.lexicon, i.form}
@@ -64,24 +64,3 @@ function parsestring(s, data)
     analyses
 end
 
-"""Parse a single token with parser `p`.
-
-($SIGNATURES)
-"""
-function Xparsetoken(p::LycianParser, s::AbstractString, data...)
-    
-    stemurn = StemUrn("lycian.allstems")
-    ruleurn = RuleUrn("lycian.allrules")
-    df = @from i in p.data begin
-        @where i.word == s
-        @select {i.lexicon, i.form}
-        @collect DataFrame
-    end
-    analyses = []
-    for r in eachrow(df)
-        lexemeurn = Cite2Urn(r.lexicon) |> abbreviate |> LexemeUrn
-        formurn  = Cite2Urn(r.form) |> abbreviate |> FormUrn
-        push!(analyses, Analysis(s, lexemeurn, formurn, stemurn, ruleurn ))
-    end
-    analyses
-end
