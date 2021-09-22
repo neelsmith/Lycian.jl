@@ -48,7 +48,7 @@ function parsestring(s, data)
     stemurn = StemUrn("lycian.allstems")
     ruleurn = RuleUrn("lycian.allrules")
 
-    df = isempty(data) ? morph_df() : data[1]
+    df = isempty(data) ? morph_df() : data
     subdf = @from i in df begin
         @where i.word == s
         @select {i.lexicon, i.form}
