@@ -4,8 +4,11 @@
 struct LycianAscii <: OrthographicSystem
     codepoints
     tokencategories
-    tokenizer
 end
+
+OrthographyTrait(::Type{LycianAscii}) = IsOrthographicSystem()
+
+
 
 """Instantiate a LycianAscii with correct code points and token types.
 $(SIGNATURES)
@@ -18,9 +21,8 @@ function lycianAscii()
         Orthography.NumericToken,
         Orthography.PunctuationToken,
     ]
-    LycianAscii(cps, ttypes, tokenizeLycian)
+    LycianAscii(cps, ttypes)
 end
-
 
 """Create correct `OrthographicToken` for a given string.
 $(SIGNATURES)
@@ -40,7 +42,7 @@ end
 """Tokenize Lycian text.
 $(SIGNATURES)
 """
-function tokenizeLycian(s::AbstractString)
+function tokenize(s::AbstractString, o::LycianAscii)
     wsdelimited = split(s)
     morphemes = map(s -> split(s,"="), wsdelimited)
     tknstrings = collect(Iterators.flatten(morphemes))

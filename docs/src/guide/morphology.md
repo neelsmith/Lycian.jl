@@ -30,7 +30,7 @@ The most efficient way to parse a string value for a single token is to provide 
 The parser comes up with only one analysis for the form *tideimis*.
 
 ```jldoctest parse
-parses = parsetoken(lycianparser, "tideimis", lycianparser.data)
+parses = parsetoken("tideimis", lycianparser, lycianparser.data)
 length(parses)
 
 # output

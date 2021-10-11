@@ -8,6 +8,7 @@ LycianAscii
 lycianAscii
 codepoints
 tokentypes
+parsetoken
 ucode
 ```
 

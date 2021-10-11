@@ -3,8 +3,10 @@ module Lycian
 using Documenter, DocStringExtensions
 
 using Orthography
+import Orthography: OrthographyTrait
 import Orthography: tokentypes 
 import Orthography: codepoints 
+import Orthography: tokenize 
 
 using CitableParserBuilder
 using CitableObject

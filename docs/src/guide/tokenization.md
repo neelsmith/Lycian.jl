@@ -7,7 +7,7 @@ The `Orthography` module also defines a `tokenize` function.
 using Orthography
 using Lycian
 ortho  = lycianAscii()
-tokens = tokenize(ortho, "ebENnE : xopA : mE=ti prNnawatE")
+tokens = tokenize( "ebENnE : xopA : mE=ti prNnawatE", ortho)
 tokens
 
 # output
