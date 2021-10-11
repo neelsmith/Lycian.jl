@@ -1,6 +1,5 @@
 struct LycianParser <: CitableParser
     label::AbstractString
-    stringparser
     data
 end
 
@@ -8,10 +7,12 @@ end
 
 ($SIGNATURES)
 """
-function parser()
+function lycianParser()
     title = "A Lycian morphological parser"
     @info("Loading morphological data...")
-    LycianParser(title, parsestring, morph_df())
+    df = morph_df()
+    @info("Done loading.")
+    LycianParser(title, df)
 end
 
 "URL for Lycian morphology data."
@@ -41,14 +42,15 @@ function searchmorph(morphdf, s)
 end
 
 
-"""Parse a single token.
+"""Parse a single token in LycianAscii orthography.
 
+$(SIGNATURES)
 """
-function parsestring(s, data)
+function parsetoken(s::AbstractString, parser::LycianParser, data = nothing)
     stemurn = StemUrn("lycian.allstems")
     ruleurn = RuleUrn("lycian.allrules")
 
-    df = isempty(data) ? morph_df() : data
+    df = isnothing(data) || isempty(data) ? morph_df() : data
     subdf = @from i in df begin
         @where i.word == s
         @select {i.lexicon, i.form}

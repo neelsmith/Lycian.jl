@@ -13,13 +13,13 @@ end
 
 @testset "Test valid character test" begin
     lycian = lycianAscii()
-    @test validchar(lycian, "E")
-    @test validchar(lycian, "u") == false
+    @test validcp( "E", lycian)
+    @test validcp("u", lycian) == false
 end
 
 @testset "Test valid string test" begin
     lycian = lycianAscii()
-    @test validstring(lycian, "tideimi :")
+    @test validstring( "tideimi :", lycian)
 end
 
 @testset "Test punctuation classification" begin
@@ -40,7 +40,7 @@ end
 
 @testset "Test tokenization" begin
     lycian = lycianAscii()    
-    tkns = lycian.tokenizer("tideimi : hrppi : ladi")
+    tkns = tokenize("tideimi : hrppi : ladi", lycian)
     @test length(tkns) == 5
     @test tkns[1].text == "tideimi"
     #@test tkns[1].tokencategory == Orthography.LexicalToken()
@@ -52,7 +52,7 @@ end
 
 @testset "Test morpheme marker" begin
     lycian = lycianAscii()    
-    tkns = lycian.tokenizer("ebENnE : xopA : mE=ti prNnawatE")
+    tkns = tokenize("ebENnE : xopA : mE=ti prNnawatE", lycian)
     @test length(tkns) == 7
     @test tkns[5].text == "mE"
     @test tkns[6].text == "ti"
@@ -62,7 +62,7 @@ end
 @testset "Test handling of badly formed strings" begin
     lycian = lycianAscii()  
     badstring = "tideimi, plus !ENGLISH!"
-    badtkns = lycian.tokenizer(badstring)
+    badtkns = tokenize(badstring, lycian)
     #@test tkns[1].text == "tideimi"
     #@test tkns[2].text == ","
 end

@@ -8,6 +8,7 @@ LycianAscii
 lycianAscii
 codepoints
 tokentypes
+parsetoken
 ucode
 ```
 
@@ -15,7 +16,6 @@ Internal functions:
 
 ```@docs
 Lycian.tokenforstring
-Lycian.tokenizeLycian
 Lycian.alphabetic
 Lycian.isNumeric
 Lycian.isAlphabetic

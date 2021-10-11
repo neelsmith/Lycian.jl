@@ -3,10 +3,16 @@ module Lycian
 using Documenter, DocStringExtensions
 
 using Orthography
+import Orthography: OrthographyTrait
 import Orthography: tokentypes 
 import Orthography: codepoints 
+import Orthography: tokenize 
 
 using CitableParserBuilder
+import CitableParserBuilder: ParserTrait
+import CitableParserBuilder: parsetoken
+export parsetoken, lycianParser
+
 using CitableObject
 
 using HTTP, CSV, DataFrames
@@ -27,7 +33,6 @@ export ucode
 
 
 export LycianParser
-export parser
 export lexicon_df, lookuplex, searchlex
 export morph_df, searchmorph
 export forms_df, lookupform
