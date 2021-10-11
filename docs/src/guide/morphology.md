@@ -8,12 +8,13 @@ You can begin by instantiating a `LycianParser` with the `parser()` function.
 ```jldoctest parse
 using Lycian
 using CitableParserBuilder
-lycianparser = parser()
+lycianparser = lycianParser()
 typeof(lycianparser) |> supertype
 
 # output
 
 [ Info: Loading morphological data...
+[ Info: Done loading.
 CitableParser
 ```
 

@@ -16,7 +16,6 @@ Internal functions:
 
 ```@docs
 Lycian.tokenforstring
-Lycian.tokenizeLycian
 Lycian.alphabetic
 Lycian.isNumeric
 Lycian.isAlphabetic
