@@ -1,4 +1,3 @@
-
 ![build](https://github.com/neelsmith/Lycian.jl/actions/workflows/Documentation.yml/badge.svg)
 
 
