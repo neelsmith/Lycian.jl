@@ -1,6 +1,5 @@
 ![build](https://github.com/neelsmith/Lycian.jl/actions/workflows/Documentation.yml/badge.svg)
 
-
 # Lycian.jl
 
 A Julia module for working with a digital corpus of Lycian texts.  It allows you to:
